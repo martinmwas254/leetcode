@@ -1,0 +1,15 @@
+# @param {String} allowed
+# @param {String[]} words
+# @return {Integer}
+def count_consistent_strings(allowed, words)
+    allowed_set = allowed.chars.to_set
+    count = 0
+
+    words.each do |word|
+        if word.chars.all? { |char| allowed_set.include?(char) }
+            count += 1
+        end
+    end
+
+    count
+end
